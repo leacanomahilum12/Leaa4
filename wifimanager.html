@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>ESP32 Network Setup</title>
+
+
+<style>
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #401b01,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #173d55,
+            transparent 35%
+        ),
+        #0b1220;
+
+    color: #eaf2ff;
+
+}
+
+
+.card {
+
+    width: 100%;
+
+    max-width: 440px;
+
+    padding: 32px;
+
+    border-radius: 22px;
+
+    background: #111d31;
+
+    border:
+        1px solid #30476a;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.3);
+
+}
+
+
+.icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5ee7ff,
+            #7774ff
+        );
+
+    color: #07111f;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+
+
+h1 {
+
+    text-align: center;
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 27px;
+
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #8296b2;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin:
+        10px 0 25px;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin:
+        17px 0 7px;
+
+    color: #b8c7da;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: .8px;
+
+}
+
+
+input {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid #344b6d;
+
+    border-radius: 10px;
+
+    background: #0b1729;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+input:focus {
+
+    border-color:
+        #5ee7ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(94,231,255,.08);
+
+}
+
+
+button {
+
+    width: 100%;
+
+    height: 52px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5ee7ff,
+            #7774ff
+        );
+
+    color: #07111f;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    opacity: .9;
+
+}
+
+
+.note {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: #7186a3;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+.optional {
+
+    color: #637791;
+
+    font-weight: normal;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+    <div class="icon">
+
+        WiFi
+
+    </div>
+
+
+    <h1>
+
+        Network Setup
+
+    </h1>
+
+
+    <p class="subtitle">
+
+        Configure the WiFi connection
+        used by your ESP32.
+
+    </p>
+
+
+    <form
+        method="POST"
+        action="/"
+    >
+
+
+        <label for="ssid">
+
+            WIFI NAME (SSID)
+
+        </label>
+
+
+        <input
+            type="text"
+            id="ssid"
+            name="ssid"
+            placeholder="Enter WiFi name"
+            required
+        >
+
+
+        <label for="pass">
+
+            WIFI PASSWORD
+
+        </label>
+
+
+        <input
+            type="password"
+            id="pass"
+            name="pass"
+            placeholder="Enter WiFi password"
+            required
+        >
+
+
+        <label for="ip">
+
+            STATIC IP
+
+            <span class="optional">
+                (optional)
+            </span>
+
+        </label>
+
+
+        <input
+            type="text"
+            id="ip"
+            name="ip"
+            placeholder="Example: 192.168.1.50"
+        >
+
+
+        <label for="gateway">
+
+            GATEWAY
+
+            <span class="optional">
+                (optional)
+            </span>
+
+        </label>
+
+
+        <input
+            type="text"
+            id="gateway"
+            name="gateway"
+            placeholder="Example: 192.168.1.1"
+        >
+
+
+        <button type="submit">
+
+            SAVE NETWORK SETTINGS
+
+        </button>
+
+
+    </form>
+
+
+    <div class="note">
+
+        Static IP and Gateway can be left blank.
+        The ESP32 will use DHCP automatically.
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
